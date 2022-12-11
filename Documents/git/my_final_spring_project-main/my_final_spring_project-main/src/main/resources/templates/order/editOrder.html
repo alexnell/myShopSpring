@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование заказов</title>
+</head>
+<body>
+<h4>Редактирование заказов</h4>
+
+
+<section id="content2">
+    <form th:method="POST" th:action="@{/admin/order/edit/{id}(id=${order.getId()})}" th:object="${order}" style="border:1px;background: #ffecb5">
+        <div class="col-md-12 col-sm-12 col-12">
+            <div class="row section text-center">
+                <div class="col-md-6 col-sm-12 col-12">
+                    <label for="number">Введите номер заказа: </label><br>
+                    <input type="text" th:field="*{number}" placeholder="Номер заказа" id="number">
+                    <div style="color: red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></div>
+                    <br>
+                    <label for="count">Введите количество заказа: </label><br>
+                    <textarea th:field="*{count}" placeholder="Количество" id="count"></textarea>
+                    <div style="color: red" th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></div>
+                    <br>
+                    <label for="price">Введите цену заказа: </label><br>
+                    <input type="number" th:field="*{price}" min="1" step="0.00" id="price">
+                    <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+                </div><br>
+                <div class="col-md-6 col-sm-12 col-12">
+                    <label for="person">Введите id покупателя: </label><br>
+                    <input type="text" th:field="*{person}" placeholder="Покупатель" id="person">
+                    <div style="color: red" th:if="${#fields.hasErrors('person')}" th:errors="*{person}"></div>
+                    <br>
+                    <label for="product">Введите id товара: </label><br>
+                    <input type="text" th:field="*{product}" placeholder="Товар" id="product">
+                    <div style="color: red" th:if="${#fields.hasErrors('product')}" th:errors="*{product}"></div>
+                    <br>
+                    <label for="status">Введите статус заказа: </label><br>
+                    <select name="status" th:field="*{status}" id="status">
+                        <div th:each="element : ${status}">
+                            <option th:text="${element.name()}" th:value="${element.ordinal()}"></option>
+                        </div>
+                        <br>
+                    </select>
+                </div>
+            </div>
+            <div class="row section text-center">
+                <div class="col-md-12 col-sm-12 col-12"> <br><input type="submit" value="Редактировать">`</div>
+            </div>
+        </div>
+    </form>
+</section>
+</div>
+<footer>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <h6 style="color: brown; margin-bottom: -20px">Итоговая работа Алексеева Н.Б. 2022г</h6>
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+
+        </div>
+    </div>
+
+
+</footer>
+</body>
+</html>

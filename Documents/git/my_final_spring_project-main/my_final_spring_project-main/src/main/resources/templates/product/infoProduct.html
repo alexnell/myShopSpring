@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+    <title>Информация о товаре</title>
+</head>
+<body>
+<header>
+    <div class="container" >
+        <div class="row">
+
+            <div class="col-md-6 col-sm-6 col-12 start align-items-start align-self-center">  <a th:href="@{/product}"> <h1 style="font-family: 'Monotype Corsiva'">Теремок</h1></a></div>
+            <div class="col-md-2 col-sm-12 col-12 align-self-center text-center">
+                <a th:href="@{/cart}">Корзина</a> </div>
+            <div class="col-md-2 col-sm-12 col-12 align-self-center text-center"><a th:href="@{/index}">Выбор товаров</a> </div>
+            <div class="col-md-2 col-sm-12 col-12 align-self-center text-center"> <form method="post" th:action="@{/logout}">
+                <input type="submit" value="Выйти из личного кабинета">
+            </form></div>
+        </div>
+    </div>
+</header>
+<div class="container" >
+    <div class="row">
+        <h4 th:text="${product.getTitle()}" style="margin-bottom: 30px"></h4>
+        <div class="col-md-4 col-sm-12 col-12 start align-items-start align-self-center">
+            <div class="row">
+        <div class="col-md-12 col-sm-6 col-12 start align-items-start align-self-center" th:each="img : ${product.getImageList()}">
+            <img th:src="'/img/' + ${img.getFileName()}" style="width:150px; height:150px; margin-bottom: 20px" class="image">
+        </div></div></div>
+        <div class="col-md-8 col-sm-6 col-12 start align-items-start align-self-center" th:each="img : ${product.getImageList[0]}">
+            <img th:src="'/img/' + ${img.getFileName()}" style="width:800px; height:800px; margin-bottom: 20px" class="image">
+<!--        <img th:src="@{/img/book.jpg}" style="width:800px; height:800px;">-->
+        </div>
+        <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+        <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+        <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+        <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+        <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+
+
+
+
+
+
+
+
+<!--<div id="carouselExampleControls" class="carousel slide" data-bs-touch="false">-->
+<!--    <div class="carousel-inner">-->
+<!--        <div class="carousel-item active">-->
+
+<!--                <img class="d-block w-100" th:src="'/img/' + ${product.imageList[0].getFileName()}" alt="First slide"  height="800px">-->
+<!--            </div>-->
+<!--        <div class="carousel-item">-->
+
+<!--                <img class="d-block w-100" th:src="'/img/' + ${product.imageList[1].getFileName()}" alt="Two slide" height="800px">-->
+<!--            </div>-->
+<!--        <div class="carousel-item">-->
+
+<!--                <img class="d-block w-100" th:src="'/img/' + ${product.imageList[2].getFileName()}" alt="Three slide" height="800px">-->
+<!--            </div>-->
+<!--        <div class="carousel-item">-->
+
+<!--                <img class="d-block w-100" th:src="'/img/' + ${product.imageList[3].getFileName()}" alt="For slide" height="800px">-->
+<!--            </div>-->
+<!--        <div class="carousel-item">-->
+
+<!--                <img class="d-block w-100" th:src="'/img/' + ${product.imageList[4].getFileName()}" alt="Five slide" height="800px">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">-->
+<!--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--        <span class="visually-hidden">Previous</span>-->
+<!--    </button>-->
+<!--    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">-->
+<!--        <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--        <span class="visually-hidden">Next</span>-->
+<!--    </button>-->
+<!--</div>-->
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script th:src="@{/js/index.js}"></script>
+<footer>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <h6 style="color: brown; margin-bottom: -20px">Итоговая работа Алексеева Н.Б. 2022г</h6>
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+
+        </div>
+    </div>
+
+
+</footer>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    background-color: rgb(252 245 237);
+    width: 100%;
+    height: 100%;
+
+}
+
+header {
+    background-color: #ffecb5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+.wrapper{
+    height: 100%;
+}
+.content{
+    box-sizing: border-box;
+    min-height: 100%;
+    padding-bottom: 90px;
+}
+footer{
+    background-color: #ffecb5;
+    height: 90px;
+
+}
+.forest{
+    width: 225px;
+    margin-left: -70px;
+}
+
+a:link
+{
+    color: #8B4513;
+
+}
+a:visited
+{
+    color: #800000;
+
+}
+a:hover
+{
+    color: #FF4500;
+
+}
+a:active
+{
+    color: #8B0000;
+
+}
+a{
+    text-decoration: none;
+    font: bold 16px Georgia
+}
+
+.product{
+    margin:40px;
+
+}
+.search{
+    width: 10px;
+}
+#content form input, textarea, option,select
+{
+    border: 2px solid darkgrey;
+    font:16x  Georgia;
+    margin-bottom: 10px;
+    padding: 15px;
+    height: 50px;
+    background-color: honeydew;
+    color: green;
+}
+#content1 form input, textarea, option,select
+{
+    border: 2px solid darkgrey;
+    font:18px  Georgia;
+    /*margin: 0 0 10px;*/
+    padding: 15px;
+    height: 50px;
+    width: 300px;
+    background-color: white; /* Цвет фона */
+
+}
+#content form input[type="radio"]:checked::after
+{
+    background-color: green;
+}
+#content1 form input:focus
+ {
+     border:3px solid green;
+ }
+
+#content form input:focus
+{
+    border:3px solid green;
+
+}
+
+#content form label
+{    font: 14px  Georgia;
+    padding: 5px ;
+}
+#content1 form label
+{    font: 18px  Georgia;
+    padding: 15px ;
+}
+input[type="submit"]{
+    background: brown;
+    color: white;
+    font: 12pt Georgia;
+    padding: 10px ;
+
+}
+#content form input[type="submit"]
+{
+    background: green;
+    color: white;
+    font: 14pt Georgia;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px ;
+}
+#content1 form input[type="submit"]
+{
+    background: green;
+    color: white;
+    font: 14pt Georgia;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px ;
+}
+h1{
+    color:brown;
+    font-weight: bold;
+ }
+img{
+    height: 300px;
+    width: 270px;
+    border-radius: 20px;
+}
+.image{
+    border:2px solid brown;
+}
+p{
+    font-family: 'Georgia';
+    font-size: 14 px;
+    text-align:justify;
+    line-height: 1.5;
+    text-indent: 30px;
+    font-family: serif;
+
+}
+h3,h4, h5
+{	font-family: 'Georgia';
+    text-align:center;
+    color: green;
+}
+h4{
+    font-weight: bold;
+}
+h6
+{	font-family: 'Georgia';
+    text-align:left;
+    color: green;
+
+}
+
+#content1
+{
+    border-top: 3px solid green;
+    padding: 25px 0 0;
+    text-align: center;
+    width: 400px;
+    height: 220px;
+}
+#content2
+{
+    border-top: 3px solid green;
+    padding: 25px 0 0;
+    text-align: center;
+    width: 1000px;
+    height: 400px;
+}
+#content2 form label
+{    font: 16px  Georgia;
+    padding: 5px ;
+}
+#content2 form input:focus
+{
+    border:3px solid green;
+
+}
+#content2 form input[type="file"]
+{
+    border: 2px solid darkgrey;
+    font:16px  Georgia;
+    /*margin: 0 0 10px;*/
+    padding: 5px;
+    height: 40px;
+    width: 300px;
+    background-color: honeydew;
+    margin-bottom: 5px;
+}
+
+#content2 form textarea{
+    border: 2px solid darkgrey;
+    font:16px  Georgia;
+    /*margin: 0 0 10px;*/
+    padding: 5px;
+    width: 300px;
+   height:100px;
+    background-color: honeydew; /* Цвет фона */
+    margin-bottom: 20px;
+}
+#content2 form option,select
+{
+    border: 2px solid darkgrey;
+    font:16px  Georgia;
+    /*margin: 0 0 10px;*/
+    padding: 5px;
+    height: 50px;
+    width: 300px;
+    background-color: honeydew; /* Цвет фона */
+    margin-bottom: 20px;
+}
+#content2 form input[type="number"]
+{
+    border: 2px solid darkgrey;
+    font:16px  Georgia;
+    /*margin: 0 0 10px;*/
+    padding: 5px;
+    height: 50px;
+    width: 300px;
+    background-color: honeydew; /* Цвет фона */
+    margin-bottom: 20px;
+}
+#content2 form input[type="text"]
+{
+    border: 2px solid darkgrey;
+    font:16px  Georgia;
+    /*margin: 0 0 10px;*/
+    padding: 5px;
+    height: 50px;
+    width: 300px;
+    background-color: honeydew; /* Цвет фона */
+    margin-bottom: 20px;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+</head>
+<body>
+<header>
+    <div class="container" >
+        <div class="row">
+
+            <div class="col-md-6 col-sm-6 col-12 start align-items-start align-self-center">  <a th:href="@{/product}"> <h1 style="font-family: 'Monotype Corsiva'">Теремок</h1></a></div>
+            <div class="col-md-2 col-sm-12 col-12 align-self-center text-center">
+                <a th:href="@{/cart}">Корзина</a> </div>
+            <div class="col-md-2 col-sm-12 col-12 align-self-center text-center"> <form method="get" th:action="@{/orders}">
+                <input type="submit" value="История заказов">
+            </form> </div>
+            <div class="col-md-2 col-sm-12 col-12 align-self-center text-center"> <form method="post" th:action="@{/logout}">
+                <input type="submit" value="Выйти из личного кабинета">
+            </form></div>
+        </div>
+    </div>
+</header>
+<div class="container">
+       <div class="row section text-center">
+           <h4 class=" text-start" style="color:brown"> Личный кабинет пользователя</h4>
+        <div class="col-md-3 col-sm-12 col-12">
+<br>
+<br>
+            <section id="content">
+                <form th:method="POST" th:action="@{/product/search}" >
+                    <fieldset>
+                        <legend><h4>Сортировка</h4> </legend>
+                        <br>
+                        <label for="search" ><h5>Поиск по наименованию</h5></label>
+                        <input name="search" id="search" th:value="*{value_search}">
+                        <br>
+                        <p style="margin-top: 20px; font-size:14px; font-weight:bold; text-align: center; color: green "><h5>Цена, ₽</h5></p>
+
+                        <label for="ot" >От</label>
+                        <input type="text" name="ot" id="ot" th:value="*{value_price_ot}">
+
+                        <br>
+                        <label for="do" >До</label>
+                        <input type="text" name="do" id="do" th:value="*{value_price_do}">
+
+
+                        <label for="ascending_price"> по возрастанию цены</label>
+                        <input type="radio" id="ascending_price" name="price" value="sorted_by_ascending_price" style=" vertical-align:middle;
+                   margin:0;">
+
+                        <label for="descending_price"> по убыванию цены</label>
+                        <input type="radio" id="descending_price" name="price" value="sorted_by_descending_price" style=" vertical-align:middle;
+                   margin:0;">
+                        <br>
+                        <p  style="font-size:14px; font-weight:bold; text-align: center;color: green; margin-top: 20px;"><h4>Категория товаров:</h4> </p>
+                        <label for="games"><h5>Игрушки и игры</h5></label>
+                        <input type="radio" id="games" name="contact" value="games" style=" vertical-align:middle;
+                   margin:0;">
+                        <br>
+                        <label for="creativity"><h5>Детское творчество</h5></label>
+                        <input type="radio" id="creativity" name="contact" value="creativity" style=" vertical-align:middle;
+                   margin:0;" >
+                        <br>
+                        <label for="transport"><h5>Детский транспорт</h5></label>
+                        <input type="radio" id="transport" name="contact" value="transport" style=" vertical-align:middle;
+                   margin:0;" >
+                        <br>
+                        <br>
+                        <input type="submit" value="Найти">
+
+                    </fieldset>
+                    <br>
+                </form>
+
+</section>
+        </div>
+           <div class="col-md-9 col-sm-12 col-12 order-md-0 order-sm-2 ">
+               <div class="row">
+                   <div class="col-md-3 col-sm-12 col-12 product" th:each="product : ${search_product}">
+                       <img  th:src="'/img/' + ${product.imageList[0].getFileName()}" class="img1">
+                       <br>
+                       <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+                       <p style="margin-top: 10px; font-weight:bold" th:text="'Цена: ' + ${product.getPrice()}"></p>
+
+                   </div>
+               </div>
+           <div class="row">
+               <h4>Перечень товаров: </h4>
+
+<div class="col-md-3 col-sm-12 col-12 product" th:each="product : ${products}">
+    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" class="img1">
+    <br>
+    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+
+    <div class="row">
+    <div class="col-md-6 col-sm-12 col-12" style="margin-top: 10px; font-weight:bold" th:text="'Цена: ' + ${product.getPrice()}"></div>
+    <div class="col-md-6 col-sm-12 col-12">
+    <form  th:action="@{/cart/add/{id}(id=${product.getId()})}">
+        <input type="submit" value="В корзину">
+    </form>
+
+    </div>
+</div>
+ </div>
+ </div>
+       </div>
+</div>
+    </div>
+<footer>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <h6 style="color: brown; margin-bottom: -20px">Итоговая работа Алексеева Н.Б. 2022г</h6>
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 start align-items-start align-self-center">
+                <img th:src="@{/img/5.png}" style="height:100px; width: 421px;margin-left: 0px">
+            </div>
+
+        </div>
+    </div>
+
+
+</footer>
+</body>
+</html>
